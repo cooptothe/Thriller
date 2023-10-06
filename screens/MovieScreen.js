@@ -15,6 +15,12 @@ const ios = Platform.OS == 'ios';
 const topMargin = ios? '':' mt-3';
 var {width, height} = Dimensions.get('window');
 
+const horrorTheme = {
+    background: '#000000', // Black background
+    text: '#FF0000', // Blood red text color
+    accent: '#8B0000' // Dark red accent color
+  };
+
 export default function MovieScreen() {
   const {params: item} = useRoute();
   const navigation = useNavigation();
@@ -68,11 +74,11 @@ export default function MovieScreen() {
   }
   return (
     <ScrollView
-        contentContainerStyle={{paddingBottom: 20}}
         className="flex-1 bg-neutral-900">
 
+
       {/* back button and movie poster */}
-      <View className="w-full">
+      <View className="w-full" >
         <SafeAreaView className={"absolute z-20 w-full flex-row justify-between items-center px-4 "+topMargin}>
             <TouchableOpacity style={styles.background} className="rounded-xl p-1" onPress={()=> navigation.goBack()}>
                 <ChevronLeftIcon size="28" strokeWidth={2.5} color="white" />
@@ -93,8 +99,8 @@ export default function MovieScreen() {
                         style={{width, height: height*0.55}}
                     />
                     <LinearGradient
-                        colors={['transparent', 'rgba(23, 23, 23, 0.8)', 'rgba(23, 23, 23, 1)']}
-                        style={{width, height: height*0.40}}
+                        colors={['transparent', 'rgba(0, 0, 0, 0.8)', 'rgba(0, 0, 0, 1)']}
+                        style={{width, height: height*0.20}}
                         start={{ x: 0.5, y: 0 }}
                         end={{ x: 0.5, y: 1 }}
                         className="absolute bottom-0"
@@ -108,16 +114,19 @@ export default function MovieScreen() {
       </View>
 
       {/* movie details */}
-
-      <View style={{marginTop: -(height*0.09)}} className="space-y-3">
-        {/* title */}
-        <Text className="text-white text-center text-3xl font-bold tracking-widest">
+      <View style={{marginTop: -(height*0.09), marginBottom: 10}}className="space-y-3">
+      {/* title */}
+      <Text className="text-white text-center text-3xl font-bold tracking-widest">
             {
                 movie?.title
             }
         </Text>
+        </View>
+
+      <View style={{ ...styles.background, backgroundColor: horrorTheme.background, marginTop: 10}} className="space-y-3">
 
         {/* status, release year, runtime */}
+        <View style={{ marginTop: 10}}  className="flex-row justify-center mx-4 space-x-2">
         {
             movie?.id? (
                 <Text className="text-neutral-400 font-semibold text-base text-center">
@@ -125,8 +134,7 @@ export default function MovieScreen() {
                 </Text>
             ):null
         }
-
-
+        </View>
 
         {/* genres  */}
         <View className="flex-row justify-center mx-4 space-x-2">
@@ -148,14 +156,11 @@ export default function MovieScreen() {
                 movie?.overview
             }
         </Text>
-
-     </View>
-
-      {/* streaming */}
-        <Text style={{ marginTop: 60 }} className="text-white text-sm mx-4">
+    {/* streaming */}
+    <Text style={{ marginTop: 60 }} className="text-white text-sm mx-4">
         Watch Now:
         {streaming?.US?.buy?.map((provider, index) => (
-            <TouchableOpacity key={index} onPress={() => openLink(provider.link)}>
+            <TouchableOpacity key={index}>
             <Image
                 source={{ uri: `https://image.tmdb.org/t/p/original${provider.logo_path}` }}
                 style={{ width: 20, height: 20, marginRight: 5, marginLeft: 5 }}
@@ -164,7 +169,6 @@ export default function MovieScreen() {
 
         ))}
         </Text>
-
       {/* cast */}
       {
         movie?.id && cast.length>0 && <Cast navigation={navigation} cast={cast} />
@@ -174,6 +178,7 @@ export default function MovieScreen() {
       {
         movie?.id && similarMovies.length>0 && <MovieList title={'Similar Movies 🎞️'} hideSeeAll={true} data={similarMovies} />
       }
+     </View>
 
     </ScrollView>
   )

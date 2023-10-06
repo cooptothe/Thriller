@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
 
 export const theme = {
-   background: '#FF4040',
-   text: '#FF4040',
+   background: '#cc2b2b',
+   text: '#cc2b2b',
    accent: '#8B0000', // Dark red accent color
 }
 export const styles = StyleSheet.create({

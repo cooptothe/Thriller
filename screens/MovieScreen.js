@@ -152,13 +152,13 @@ export default function MovieScreen() {
      </View>
 
       {/* streaming */}
-        <Text style={{ marginTop: 30 }} className="text-neutral-400 mx-4 tracking-wide ">
+        <Text style={{ marginTop: 60 }} className="text-white text-sm mx-4">
         Watch Now:
         {streaming?.US?.buy?.map((provider, index) => (
             <TouchableOpacity key={index} onPress={() => openLink(provider.link)}>
             <Image
                 source={{ uri: `https://image.tmdb.org/t/p/original${provider.logo_path}` }}
-                style={{ width: 20, height: 20, marginRight: 5, marginLeft: 5, marginTop: 60 }}
+                style={{ width: 20, height: 20, marginRight: 5, marginLeft: 5 }}
             />
             </TouchableOpacity>
 
@@ -172,7 +172,7 @@ export default function MovieScreen() {
 
       {/* similar movies section */}
       {
-        movie?.id && similarMovies.length>0 && <MovieList title={'Similar Movies'} hideSeeAll={true} data={similarMovies} />
+        movie?.id && similarMovies.length>0 && <MovieList title={'Similar Movies 🎞️'} hideSeeAll={true} data={similarMovies} />
       }
 
     </ScrollView>

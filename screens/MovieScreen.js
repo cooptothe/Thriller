@@ -3,11 +3,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { ArrowLeftIcon, ChevronLeftIcon } from 'react-native-heroicons/outline';
-import { HeartIcon} from 'react-native-heroicons/solid';
+import { StarIcon} from 'react-native-heroicons/solid';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Cast from '../components/cast';
 import MovieList from '../components/movieList';
-import { fallbackMoviePoster, fetchMovieCredits, fetchMovieDetails, fetchSimilarMovies, image500 } from '../api/moviedb';
+import { fallbackMoviePoster, fetchMovieCredits, fetchMovieDetails, fetchSimilarMovies, fetchStreamingServices, image500 } from '../api/moviedb';
 import { styles, theme } from '../theme';
 import Loading from '../components/loading';
 
@@ -19,10 +19,11 @@ export default function MovieScreen() {
   const {params: item} = useRoute();
   const navigation = useNavigation();
   const [movie, setMovie] = useState({});
-  const [cast, setCast] = useState([])
-  const [similarMovies, setSimilarMovies] = useState([])
+  const [cast, setCast] = useState([]);
+  const [similarMovies, setSimilarMovies] = useState([]);
   const [isFavourite, toggleFavourite] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [streaming, setStreaming] = useState([])
 
 
 
@@ -31,6 +32,7 @@ export default function MovieScreen() {
     getMovieDetials(item.id);
     getMovieCredits(item.id);
     getSimilarMovies(item.id);
+    getMovieStreaming(item.id);
   },[item]);
 
   const getMovieDetials = async id=>{
@@ -39,6 +41,13 @@ export default function MovieScreen() {
     setLoading(false);
     if(data) {
         setMovie({...movie, ...data});
+    }
+  }
+  const getMovieStreaming = async id=>{
+    const data = await fetchStreamingServices(id);
+    console.log('got movie streaming');
+    if(data && data.results) {
+        setStreaming(data.results);
     }
   }
   const getMovieCredits = async id=>{
@@ -58,8 +67,8 @@ export default function MovieScreen() {
 
   }
   return (
-    <ScrollView 
-        contentContainerStyle={{paddingBottom: 20}} 
+    <ScrollView
+        contentContainerStyle={{paddingBottom: 20}}
         className="flex-1 bg-neutral-900">
 
       {/* back button and movie poster */}
@@ -70,21 +79,21 @@ export default function MovieScreen() {
             </TouchableOpacity>
 
             <TouchableOpacity onPress={()=> toggleFavourite(!isFavourite)}>
-                <HeartIcon size="35" color={isFavourite? theme.background: 'white'} />
+                <StarIcon size="35" color={isFavourite? theme.background: 'white'} />
             </TouchableOpacity>
         </SafeAreaView>
         {
             loading? (
                 <Loading />
             ):(
-                <View>  
-                    <Image 
-                        // source={require('../assets/images/moviePoster2.png')} 
+                <View>
+                    <Image
+                        // source={require('../assets/images/moviePoster2.png')}
                         source={{uri: image500(movie.poster_path) || fallbackMoviePoster}}
-                        style={{width, height: height*0.55}} 
+                        style={{width, height: height*0.55}}
                     />
-                    <LinearGradient 
-                        colors={['transparent', 'rgba(23, 23, 23, 0.8)', 'rgba(23, 23, 23, 1)']} 
+                    <LinearGradient
+                        colors={['transparent', 'rgba(23, 23, 23, 0.8)', 'rgba(23, 23, 23, 1)']}
                         style={{width, height: height*0.40}}
                         start={{ x: 0.5, y: 0 }}
                         end={{ x: 0.5, y: 1 }}
@@ -93,13 +102,13 @@ export default function MovieScreen() {
                 </View>
             )
         }
-       
-        
-        
+
+
+
       </View>
-        
+
       {/* movie details */}
-      
+
       <View style={{marginTop: -(height*0.09)}} className="space-y-3">
         {/* title */}
         <Text className="text-white text-center text-3xl font-bold tracking-widest">
@@ -116,9 +125,9 @@ export default function MovieScreen() {
                 </Text>
             ):null
         }
-        
 
-        
+
+
         {/* genres  */}
         <View className="flex-row justify-center mx-4 space-x-2">
             {
@@ -139,15 +148,28 @@ export default function MovieScreen() {
                 movie?.overview
             }
         </Text>
-        
+
      </View>
-        
-      
+
+      {/* streaming */}
+        <Text style={{ marginTop: 30 }} className="text-neutral-400 mx-4 tracking-wide ">
+        Watch Now:
+        {streaming?.US?.buy?.map((provider, index) => (
+            <TouchableOpacity key={index} onPress={() => openLink(provider.link)}>
+            <Image
+                source={{ uri: `https://image.tmdb.org/t/p/original${provider.logo_path}` }}
+                style={{ width: 20, height: 20, marginRight: 5, marginLeft: 5, marginTop: 60 }}
+            />
+            </TouchableOpacity>
+
+        ))}
+        </Text>
+
       {/* cast */}
       {
         movie?.id && cast.length>0 && <Cast navigation={navigation} cast={cast} />
       }
-      
+
       {/* similar movies section */}
       {
         movie?.id && similarMovies.length>0 && <MovieList title={'Similar Movies'} hideSeeAll={true} data={similarMovies} />

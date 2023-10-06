@@ -15,6 +15,7 @@ const searchMoviesEndpoint = `${apiBaseUrl}/search/movie?api_key=${apiKey}&with_
 
 // movie
 const movieDetailsEndpoint = id=> `${apiBaseUrl}/movie/${id}?api_key=${apiKey}&with_genres=27,9648,53`;
+const movieStreamingEndpoint = id=> `${apiBaseUrl}/movie/${id}/watch/providers?api_key=${apiKey}&with_genres=27,9648,53`;
 const movieCreditsEndpoint = id=> `${apiBaseUrl}/movie/${id}/credits?api_key=${apiKey}&with_genres=27,9648,53`;
 const similarMoviesEndpoint = id=> `${apiBaseUrl}/movie/${id}/similar?api_key=${apiKey}&with_genres=27,9648,53`;
 
@@ -66,6 +67,9 @@ export const fetchMovieDetails = (id)=>{
 }
 export const fetchMovieCredits = (movieId)=>{
     return apiCall(movieCreditsEndpoint(movieId));
+}
+export const fetchStreamingServices = (movieId)=>{
+    return apiCall(movieStreamingEndpoint(movieId));
 }
 export const fetchSimilarMovies = (movieId)=>{
     return apiCall(similarMoviesEndpoint(movieId));

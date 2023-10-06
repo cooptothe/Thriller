@@ -8,7 +8,6 @@ export const theme = {
 export const styles = StyleSheet.create({
    text: {
      color: theme.text,
-     fontFamily: 'horror-type',
      textShadowColor: theme.accent,
      textShadowOffset: { width: 5, height: 5 },
      textShadowRadius: 12,

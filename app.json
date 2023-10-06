@@ -15,6 +15,11 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "fonts": [
+      {
+        "horror-type": "./assets/fonts/HorrorType.ttf"
+      }
+    ],
     "ios": {
       "supportsTablet": true,
       "jsEngine": "jsc"

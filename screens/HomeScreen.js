@@ -12,6 +12,12 @@ import { styles } from '../theme';
 
 const ios = Platform.OS === 'ios';
 
+const horrorTheme = {
+  background: '#000000', // Black background
+  text: '#FF0000', // Blood red text color
+  accent: '#8B0000' // Dark red accent color
+};
+
 export default function HomeScreen() {
 
   const [trending, setTrending] = useState([]);
@@ -47,14 +53,14 @@ export default function HomeScreen() {
 
 
   return (
-    <View className="flex-1 bg-neutral-800">
+    <View className="flex-1" style={{ ...styles.background, backgroundColor: horrorTheme.background }}>
       {/* search bar */}
       <SafeAreaView className={ios? "-mb-2": "mb-3"}>
         <StatusBar style="light" />
         <View className="flex-row justify-between items-center mx-4">
           <Bars3CenterLeftIcon size="30" strokeWidth={2} color="white" />
           <Text
-            className="text-white text-3xl font-bold">
+            className="text-white text-3xl font-bold ">
               <Text style={styles.text}>T</Text>hriller
           </Text>
           <TouchableOpacity onPress={()=> navigation.navigate('Search')}>

@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 import Loading from '../components/loading';
 import { styles } from '../theme';
 import customLogo from '../assets/customLogo.png';
+import icon from '../assets/icon.png';
 
 const ios = Platform.OS === 'ios';
 
@@ -57,11 +58,8 @@ export default function HomeScreen() {
       <SafeAreaView className={ios? "-mb-2": "mb-3"}>
         <StatusBar style="light" />
         <View className="flex-row justify-between items-center mx-4">
-        <Image source={customLogo} style={{ width: 30, height: 30, marginRight: 10 }} />
-          <Text
-            className="text-white text-3xl font-bold ">
-              <Text style={styles.text}>T</Text>hriller
-          </Text>
+        <Image source={customLogo} style={{ width: 0, height: 0, marginRight: 20 }} />
+          <Image source={icon} style={{ width: 245, height: 45 }} />
           <TouchableOpacity onPress={()=> navigation.navigate('Search')}>
             <MagnifyingGlassIcon size="30" strokeWidth={2} color="white" />
           </TouchableOpacity>

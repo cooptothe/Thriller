@@ -29,7 +29,8 @@ export default function MovieScreen() {
   const [similarMovies, setSimilarMovies] = useState([]);
   const [isFavourite, toggleFavourite] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [streaming, setStreaming] = useState([])
+  const [streaming, setStreaming] = useState([]);
+  const [watchLink, setWatchLink] = useState('');
 
 
 
@@ -52,8 +53,10 @@ export default function MovieScreen() {
   const getMovieStreaming = async id=>{
     const data = await fetchStreamingServices(id);
     console.log('got movie streaming');
+    console.log(watchLink);
     if(data && data.results) {
         setStreaming(data.results);
+        setWatchLink(streaming.US.link);
     }
   }
   const getMovieCredits = async id=>{
@@ -160,7 +163,7 @@ export default function MovieScreen() {
     <Text style={{ marginTop: 60 }} className="text-white text-sm mx-4">
         Watch Now:
         {streaming?.US?.buy?.map((provider, index) => (
-            <TouchableOpacity key={index}>
+            <TouchableOpacity key={index} onPress={() => open(watchLink)}>
             <Image
                 source={{ uri: `https://image.tmdb.org/t/p/original${provider.logo_path}` }}
                 style={{ width: 20, height: 20, marginRight: 5, marginLeft: 5 }}

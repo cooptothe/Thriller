@@ -10,6 +10,11 @@ import { LinearGradient } from 'expo-linear-gradient'
 
 const {width, height} =  Dimensions.get('window');
 
+const horrorTheme = {
+    background: '#000000', // Black background
+    text: '#FF0000', // Blood red text color
+    accent: '#8B0000' // Dark red accent color
+  };
 
 export default function SearchScreen() {
     const navigation = useNavigation();

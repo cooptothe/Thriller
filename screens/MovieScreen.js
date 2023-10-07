@@ -56,7 +56,7 @@ export default function MovieScreen() {
     console.log(watchLink);
     if(data && data.results) {
         setStreaming(data.results);
-        setWatchLink(streaming.US.link);
+        setWatchLink(data.results.US.link);
     }
   }
   const getMovieCredits = async id=>{

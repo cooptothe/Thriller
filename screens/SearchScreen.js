@@ -54,10 +54,12 @@ export default function SearchScreen() {
                 placeholderTextColor={'lightgray'} 
                 className="pb-1 pl-6 flex-1 text-base font-semibold text-white tracking-wider" 
             />
-            <TouchableOpacity
+            <TouchableOpacity 
                 onPress={()=> navigation.navigate('Home')}
-                className="rounded-full p-3 m-1 bg-neutral-500"
+                className="rounded-full p-3 m-1 bg-neutral-500" 
             >
+                <XMarkIcon size="10" color="white" />
+
             </TouchableOpacity>
         </View>
 

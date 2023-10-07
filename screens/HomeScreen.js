@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, ScrollView, Platform } from 'react-native'
+import { View, Text, Image, TouchableOpacity, ScrollView, Platform } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {Bars3CenterLeftIcon, MagnifyingGlassIcon} from 'react-native-heroicons/outline'
@@ -9,6 +9,7 @@ import { fetchTopRatedMovies, fetchTrendingMovies, fetchUpcomingMovies } from '.
 import { useNavigation } from '@react-navigation/native';
 import Loading from '../components/loading';
 import { styles } from '../theme';
+import customLogo from '../assets/customLogo.png';
 
 const ios = Platform.OS === 'ios';
 
@@ -47,7 +48,6 @@ export default function HomeScreen() {
   const getTopRatedMovies = async ()=>{
     const data = await fetchTopRatedMovies();
     console.log('got top rated', data.results.length)
-    if(data && data.results) setTopRated(data.results);
   }
 
 
@@ -58,7 +58,7 @@ export default function HomeScreen() {
       <SafeAreaView className={ios? "-mb-2": "mb-3"}>
         <StatusBar style="light" />
         <View className="flex-row justify-between items-center mx-4">
-          <Bars3CenterLeftIcon size="30" strokeWidth={2} color="white" />
+        <Image source={customLogo} style={{ width: 30, height: 30, marginRight: 10 }} />
           <Text
             className="text-white text-3xl font-bold ">
               <Text style={styles.text}>T</Text>hriller

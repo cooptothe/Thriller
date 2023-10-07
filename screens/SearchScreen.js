@@ -116,14 +116,14 @@ export default function SearchScreen() {
                 />
                  <LinearGradient
                         colors={['transparent', 'rgba(0, 0, 0, 0.5)', 'rgba(0, 0, 0, 5)']}
-                        style={{width: width*2, height: height*0.20, top: 30,}}
+                        style={{width: width*1.2, height: height*0.20, top: 30,}}
                         start={{ x: 0.5, y: 1 }}
                         end={{ x: 0.5, y: 0 }}
                         className="absolute bottom-80"
                 />
                 <LinearGradient
                         colors={['transparent', 'rgba(0, 0, 0, 0.5)', 'rgba(0, 0, 0, 5)']}
-                        style={{width: width*2, height: height*0.20}}
+                        style={{width: width*1.2, height: height*0.20}}
                         start={{ x: 0.5, y: 0 }}
                         end={{ x: 0.5, y: 1 }}
                         className="absolute bottom-0"

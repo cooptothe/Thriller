@@ -79,7 +79,6 @@ export default function MovieScreen() {
     <ScrollView
         className="flex-1 bg-neutral-900">
 
-
       {/* back button and movie poster */}
       <View className="w-full" >
         <SafeAreaView className={"absolute z-20 w-full flex-row justify-between items-center px-4 "+topMargin}>
@@ -126,13 +125,13 @@ export default function MovieScreen() {
         </Text>
         </View>
 
-      <View style={{ ...styles.background, backgroundColor: horrorTheme.background, marginTop: 10}} className="space-y-3">
+      <View style={{ ...styles.background, backgroundColor: horrorTheme.background}} className="space-y-3">
 
         {/* status, release year, runtime */}
-        <View style={{ marginTop: 10}}  className="flex-row justify-center mx-4 space-x-2">
+        <View style={{marginTop: 10}} className="flex-row justify-center mx-4 space-x-2">
         {
             movie?.id? (
-                <Text className="text-neutral-400 font-semibold text-base text-center">
+                <Text style={{ backgroundColor: horrorTheme.background }} className="text-neutral-400 font-semibold text-base text-center">
                     {movie?.status} • {movie?.release_date?.split('-')[0] || 'N/A'} • {movie?.runtime} min
                 </Text>
             ):null

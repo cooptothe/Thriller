@@ -48,9 +48,8 @@ export default function HomeScreen() {
   const getTopRatedMovies = async ()=>{
     const data = await fetchTopRatedMovies();
     console.log('got top rated', data.results.length)
+    if(data && data.results) setTopRated(data.results);
   }
-
-
 
   return (
     <View className="flex-1" style={{ ...styles.background, backgroundColor: horrorTheme.background }}>

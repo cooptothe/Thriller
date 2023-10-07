@@ -43,7 +43,7 @@ export default function SearchScreen() {
     const handleTextDebounce = useCallback(debounce(handleSearch, 400), []);    
 
   return (
-    <SafeAreaView className="bg-neutral-800 flex-1">
+    <SafeAreaView className="bg-neutral-800 flex-1" style={{ backgroundColor: horrorTheme.background }}>
 
         {/* search input */}
         <View 
@@ -54,12 +54,10 @@ export default function SearchScreen() {
                 placeholderTextColor={'lightgray'} 
                 className="pb-1 pl-6 flex-1 text-base font-semibold text-white tracking-wider" 
             />
-            <TouchableOpacity 
+            <TouchableOpacity
                 onPress={()=> navigation.navigate('Home')}
-                className="rounded-full p-3 m-1 bg-neutral-500" 
+                className="rounded-full p-3 m-1 bg-neutral-500"
             >
-                <XMarkIcon size="25" color="white" />
-                
             </TouchableOpacity>
         </View>
 
@@ -67,10 +65,10 @@ export default function SearchScreen() {
         {
             loading? (
                 <Loading />
-            ): 
+            ):
             results.length>0? (
-                <ScrollView 
-                    showsVerticalScrollIndicator={false} 
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
                     contentContainerStyle={{paddingHorizontal:15}}
                     className="space-y-3"
                 >
@@ -79,15 +77,15 @@ export default function SearchScreen() {
                         {
                             results.map((item, index)=>{
                                 return (
-                                    <TouchableWithoutFeedback 
-                                        key={index} 
+                                    <TouchableWithoutFeedback
+                                        key={index}
                                         onPress={()=> navigation.push('Movie', item)}>
                                         <View className="space-y-2 mb-4">
-                                            <Image 
-                                                source={{uri: image185(item.poster_path) || fallbackMoviePoster}} 
+                                            <Image
+                                                source={{uri: image185(item.poster_path) || fallbackMoviePoster}}
                                                 // source={require('../assets/images/moviePoster2.png')}
-                                                className="rounded-3xl" 
-                                                style={{ width: width*0.44, height: height*0.3}} 
+                                                className="rounded-3xl"
+                                                style={{ width: width*0.44, height: height*0.3}}
                                             />
                                             <Text className="text-gray-300 ml-1">
                                                 {
@@ -100,20 +98,33 @@ export default function SearchScreen() {
                             })
                         }
                     </View>
-                    
                 </ScrollView>
             ):(
-                <View className="flex-row justify-center ">
-                    <Image 
-                        style={{ width: 500, height: 600, top: 200 }}
-                        source={require('../assets/images/movieTime.png')}    
-                    />
-                    <LinearGradient
-                        colors={['transparent', 'rgba(0, 0, 0, 0.8)', 'rgba(0, 0, 0, 1)']}
-                        style={{width, height: height*0.22}}
+                <View className="absolute bottom-0 flex-row justify-center ">
+                <Image
+                  style={{
+                    width: 444,
+                    height: 844,
+                    top: 37,
+                    borderRadius: 33,
+                    borderWidth: 2,
+                    borderColor: 'rgba(0, 0, 0, 1)',
+                  }}
+                  source={require('../assets/images/movieTime.png')}
+                />
+                 <LinearGradient
+                        colors={['transparent', 'rgba(0, 0, 0, 0.5)', 'rgba(0, 0, 0, 5)']}
+                        style={{width: width*2, height: height*0.20, top: 30,}}
+                        start={{ x: 0.5, y: 1 }}
+                        end={{ x: 0.5, y: 0 }}
+                        className="absolute bottom-80"
+                />
+                <LinearGradient
+                        colors={['transparent', 'rgba(0, 0, 0, 0.5)', 'rgba(0, 0, 0, 5)']}
+                        style={{width: width*2, height: height*0.20}}
                         start={{ x: 0.5, y: 0 }}
                         end={{ x: 0.5, y: 1 }}
-                        className="absolute bottom-90"
+                        className="absolute bottom-0"
                     />
                 </View>
             )

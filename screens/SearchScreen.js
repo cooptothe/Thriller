@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native'
 import { fallbackMoviePoster, image185, searchMovies } from '../api/moviedb'
 import { debounce } from 'lodash'
 import Loading from '../components/loading'
+import { LinearGradient } from 'expo-linear-gradient'
 
 const {width, height} =  Dimensions.get('window');
 
@@ -97,10 +98,17 @@ export default function SearchScreen() {
                     
                 </ScrollView>
             ):(
-                <View className="flex-row justify-center">
+                <View className="flex-row justify-center ">
                     <Image 
-                        source={require('../assets/images/movieTime.png')} 
-                        className="h-96 w-96"
+                        style={{ width: 500, height: 600, top: 200 }}
+                        source={require('../assets/images/movieTime.png')}    
+                    />
+                    <LinearGradient
+                        colors={['transparent', 'rgba(0, 0, 0, 0.8)', 'rgba(0, 0, 0, 1)']}
+                        style={{width, height: height*0.22}}
+                        start={{ x: 0.5, y: 0 }}
+                        end={{ x: 0.5, y: 1 }}
+                        className="absolute bottom-90"
                     />
                 </View>
             )

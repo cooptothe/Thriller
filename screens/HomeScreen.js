@@ -5,7 +5,7 @@ import {Bars3CenterLeftIcon, MagnifyingGlassIcon} from 'react-native-heroicons/o
 import TrendingMovies from '../components/trendingMovies';
 import MovieList from '../components/movieList';
 import { StatusBar } from 'expo-status-bar';
-import { fetchTopRatedMovies, fetchTrendingMovies, fetchUpcomingMovies } from '../api/moviedb';
+import { fetchTopRatedMovies, fetchTrendingMovies, fetchUpcomingMovies, fetchClassicMovies } from '../api/moviedb';
 import { useNavigation } from '@react-navigation/native';
 import Loading from '../components/loading';
 import { styles } from '../theme';
@@ -25,6 +25,7 @@ export default function HomeScreen() {
   const [trending, setTrending] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
   const [topRated, setTopRated] = useState([]);
+  const [classics, setClassics] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
 
@@ -33,6 +34,7 @@ export default function HomeScreen() {
     getTrendingMovies();
     getUpcomingMovies();
     getTopRatedMovies();
+    getClassicMovies();
   },[]);
 
   const getTrendingMovies = async ()=>{
@@ -51,7 +53,11 @@ export default function HomeScreen() {
     console.log('got top rated', data.results.length)
     if(data && data.results) setTopRated(data.results);
   }
-
+  const getClassicMovies = async ()=>{
+    const data = await fetchClassicMovies();
+    console.log('got top rated', data.results.length)
+    if(data && data.results) setClassics(data.results);
+  }
   return (
     <View className="flex-1" style={{ ...styles.background, backgroundColor: horrorTheme.background }}>
       {/* search bar */}
@@ -84,6 +90,8 @@ export default function HomeScreen() {
             {/* top rated movies row */}
             { topRated.length>0 && <MovieList title="Top Rated" data={topRated} /> }
 
+            {/* classic movies row */}
+            { classics.length>0 && <MovieList title="Classics" data={classics} /> }
           </ScrollView>
         )
       }

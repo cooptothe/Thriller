@@ -8,6 +8,7 @@ const trendingMoviesEndpoint = `${apiBaseUrl}/movie/popular?api_key=${apiKey}&wi
 const upcomingMoviesEndpoint = `${apiBaseUrl}/movie/upcoming?api_key=${apiKey}&with_genres=27`;
 const topRatedMoviesEndpoint = `${apiBaseUrl}/movie/top_rated?api_key=${apiKey}&primary_release_date.gte=2013-01-01&with_genres=27`;
 const searchMoviesEndpoint = `${apiBaseUrl}/search/movie?api_key=${apiKey}&with_genres=27`;
+const classicMoviesEndpoint = `${apiBaseUrl}/movie/top_rated?api_key=${apiKey}&primary_release_date.lte=2012-12-31&with_genres=27`;
 
 
 
@@ -58,6 +59,9 @@ export const fetchUpcomingMovies = ()=>{
 }
 export const fetchTopRatedMovies = ()=>{
     return apiCall(topRatedMoviesEndpoint);
+}
+export const fetchClassicMovies = ()=>{
+    return apiCall(classicMoviesEndpoint);
 }
 
 

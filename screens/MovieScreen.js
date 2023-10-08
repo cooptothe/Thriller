@@ -97,7 +97,7 @@ export default function MovieScreen() {
                     <Image
                         // source={require('../assets/images/moviePoster2.png')}
                         source={{uri: image500(movie.poster_path) || fallbackMoviePoster}}
-                        style={{width, height: height*0.55}}
+                        style={{width, height: height*0.69}}
                     />
                     <LinearGradient
                         colors={['transparent', 'rgba(0, 0, 0, 0.8)', 'rgba(0, 0, 0, 1)']}

@@ -1,7 +1,7 @@
 import { View, Text, Image, TouchableOpacity, Platform, Dimensions, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { ChevronLeftIcon } from 'react-native-heroicons/outline'
-import { HeartIcon } from 'react-native-heroicons/solid'
+import { StarIcon } from 'react-native-heroicons/solid'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import MovieList from '../components/movieList';
@@ -45,7 +45,7 @@ export default function PersonScreen() {
         const data = await fetchPersonMovies(id);
         console.log('got person movies')
         if(data && data.cast){
-            setPersonMovies(data.cast);
+            setPersonMovies(data.cast.filter(item => item.genre_ids.includes(27)));
         }
 
     }
@@ -62,7 +62,7 @@ export default function PersonScreen() {
             </TouchableOpacity>
 
             <TouchableOpacity onPress={()=> toggleFavourite(!isFavourite)}>
-                <HeartIcon size="35" color={isFavourite? 'red': 'white'} />
+                <StarIcon size="35" color={isFavourite? theme.background: 'white'} />
             </TouchableOpacity>
         </SafeAreaView>
 
@@ -83,14 +83,13 @@ export default function PersonScreen() {
                     >
                         <View 
                         className="items-center rounded-full overflow-hidden h-72 w-72 border-neutral-500 border-2">
-                            <Image 
-                                // source={require('../assets/images/castImage2.png')} 
+                            <Image
+                                // source={require('../assets/images/castImage2.png')}
                                 source={{uri: image342(person?.profile_path) || fallbackPersonImage}}
                                 style={{height: height*0.43, width: width*0.74}}
                             />
                         </View>
                     </View>
-                
                     <View className="mt-6">
                         <Text className="text-3xl text-white font-bold text-center">
                             {/* Keanu Reeves */}
@@ -101,7 +100,6 @@ export default function PersonScreen() {
                             {/* Beirut, Lebanon */}
                         </Text>
                     </View>
-        
                     <View className="mx-3 p-4 mt-6 flex-row justify-between items-center bg-neutral-800 rounded-full ">
                         <View className="border-r-2 border-r-neutral-400 px-2 items-center">
                             <Text className="text-white font-semibold ">Gender</Text>
@@ -133,10 +131,9 @@ export default function PersonScreen() {
                                 {person?.popularity?.toFixed(2)} %
                             </Text>
                         </View>
-                        
                     </View>
                     <View className="my-6 mx-4 space-y-2">
-                        <Text className="text-white text-lg">Biography</Text>
+                        <Text className="text-white text-lg">Biography 👻</Text>
                         <Text className="text-neutral-400 tracking-wide">
                             {
                                 person?.biography? person.biography : 'N/A'
@@ -145,15 +142,10 @@ export default function PersonScreen() {
                     </View>
 
                     {/* person movies */}
-                    { person?.id && personMovies.length>0 && <MovieList title="Movies" hideSeeAll={true} data={personMovies} /> }
-                
+                    { person?.id && personMovies.length>0 && <MovieList title="Movies 🎞️" hideSeeAll={true} data={personMovies} /> }
                 </View>
             )
         }
-       
-        
-
     </ScrollView>
-    
   )
 }

@@ -82,7 +82,7 @@ export default function PersonScreen() {
                         }}
                     >
                         <View 
-                        className="items-center rounded-full overflow-hidden h-72 w-72 border-neutral-500 border-2">
+                        className="items-center rounded-full overflow-hidden h-72 w-72 border-neutral-800 border-2">
                             <Image
                                 // source={require('../assets/images/castImage2.png')}
                                 source={{uri: image342(person?.profile_path) || fallbackPersonImage}}

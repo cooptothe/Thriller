@@ -47,16 +47,16 @@ export default function SearchScreen() {
 
         {/* search input */}
         <View 
-            className="mx-4 mb-3 flex-row justify-between items-center border border-neutral-500 rounded-full" >
+            className="mx-4 mb-3 flex-row justify-between items-center border border-neutral-700 rounded-full" >
             <TextInput 
                 onChangeText={handleTextDebounce} 
                 placeholder="Search Movie" 
-                placeholderTextColor={'lightgray'} 
+                placeholderTextColor={'gray'} 
                 className="pb-1 pl-6 flex-1 text-base font-semibold text-white tracking-wider" 
             />
             <TouchableOpacity 
                 onPress={()=> navigation.navigate('Home')}
-                className="rounded-full p-3 m-1 bg-neutral-500" 
+                className="rounded-full p-3 m-1 bg-neutral-700" 
             >
                 <XMarkIcon size="10" color="white" />
 

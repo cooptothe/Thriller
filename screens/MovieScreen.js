@@ -71,7 +71,7 @@ export default function MovieScreen() {
     const data = await fetchSimilarMovies(id);
     console.log('got similar movies');
     if(data && data.results){
-        setSimilarMovies(data.results);
+        setSimilarMovies(data.results.filter(item => item.genre_ids.includes(27)));
     }
 
   }

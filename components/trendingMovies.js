@@ -30,9 +30,7 @@ export default function TrendingMovies({data}) {
     </View>
   )
 }
-
 const MovieCard = ({item, handleClick})=>{
-
     return (
         <TouchableWithoutFeedback onPress={()=> handleClick(item)}>
             <Image 

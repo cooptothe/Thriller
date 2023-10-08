@@ -8,6 +8,9 @@ const {width, height} =  Dimensions.get('window');
 
 export default function MovieList({title, hideSeeAll, data}) {
   const navigation = useNavigation();
+  const handleSeeAll = () => {
+    navigation.navigate('SeeAll', { movies: data });
+  };
   return (
     <View className="mb-8 space-y-4">
       
@@ -15,8 +18,8 @@ export default function MovieList({title, hideSeeAll, data}) {
         <Text className="text-white text-lg">{title}</Text>
         {
           !hideSeeAll && (
-            <TouchableOpacity>
-              <Text style={styles.text} className="text-lg">See All</Text>
+            <TouchableOpacity onPress={()=> navigation.navigate('SeeAll')}>
+              <Text style={styles.text} className="text-lg"></Text>
             </TouchableOpacity>
           )
         }

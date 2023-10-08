@@ -4,20 +4,20 @@ import { apiKey } from "../constants";
 
 // endpoints
 const apiBaseUrl = 'https://api.themoviedb.org/3';
-const trendingMoviesEndpoint = `${apiBaseUrl}/movie/popular?api_key=${apiKey}&with_genres=27,9648,53`;
-const upcomingMoviesEndpoint = `${apiBaseUrl}/movie/upcoming?api_key=${apiKey}&with_genres=27,9648,53`;
-const topRatedMoviesEndpoint = `${apiBaseUrl}/movie/top_rated?api_key=${apiKey}&with_genres=27,9648,53`;
-const searchMoviesEndpoint = `${apiBaseUrl}/search/movie?api_key=${apiKey}&with_genres=27,9648,53`;
+const trendingMoviesEndpoint = `${apiBaseUrl}/movie/popular?api_key=${apiKey}&with_genres=27`;
+const upcomingMoviesEndpoint = `${apiBaseUrl}/movie/upcoming?api_key=${apiKey}&with_genres=27`;
+const topRatedMoviesEndpoint = `${apiBaseUrl}/movie/top_rated?api_key=${apiKey}&with_genres=27`;
+const searchMoviesEndpoint = `${apiBaseUrl}/search/movie?api_key=${apiKey}&with_genres=27`;
 
 
 
 // endpoints with dynamic params
 
 // movie
-const movieDetailsEndpoint = id=> `${apiBaseUrl}/movie/${id}?api_key=${apiKey}&with_genres=27,9648,53`;
-const movieStreamingEndpoint = id=> `${apiBaseUrl}/movie/${id}/watch/providers?api_key=${apiKey}&with_genres=27,9648,53`;
-const movieCreditsEndpoint = id=> `${apiBaseUrl}/movie/${id}/credits?api_key=${apiKey}&with_genres=27,9648,53`;
-const similarMoviesEndpoint = id=> `${apiBaseUrl}/movie/${id}/similar?api_key=${apiKey}&with_genres=27,9648,53`;
+const movieDetailsEndpoint = id=> `${apiBaseUrl}/movie/${id}?api_key=${apiKey}&with_genres=27`;
+const movieStreamingEndpoint = id=> `${apiBaseUrl}/movie/${id}/watch/providers?api_key=${apiKey}&with_genres=27`;
+const movieCreditsEndpoint = id=> `${apiBaseUrl}/movie/${id}/credits?api_key=${apiKey}&with_genres=27`;
+const similarMoviesEndpoint = id=> `${apiBaseUrl}/movie/${id}/similar?api_key=${apiKey}&with_genres=27`;
 
 // person
 const personDetailsEndpoint = id=> `${apiBaseUrl}/person/${id}?api_key=${apiKey}`;

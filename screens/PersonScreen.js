@@ -75,10 +75,10 @@ export default function PersonScreen() {
                     <View 
                         className="flex-row justify-center"
                         style={{
-                            shadowColor: 'gray',
-                            shadowRadius: 40,
-                            shadowOffset: {width: 0, height: 5},
-                            shadowOpacity: 1,
+                            shadowColor: '#cc2b2b',
+                            shadowRadius: 27,
+                            shadowOffset: {width: 0, height: 0},
+                            shadowOpacity: .5,
                         }}
                     >
                         <View 
@@ -102,7 +102,7 @@ export default function PersonScreen() {
                         </Text>
                     </View>
         
-                    <View className="mx-3 p-4 mt-6 flex-row justify-between items-center bg-neutral-700 rounded-full ">
+                    <View className="mx-3 p-4 mt-6 flex-row justify-between items-center bg-neutral-800 rounded-full ">
                         <View className="border-r-2 border-r-neutral-400 px-2 items-center">
                             <Text className="text-white font-semibold ">Gender</Text>
                             <Text className="text-neutral-300 text-sm">

@@ -74,10 +74,12 @@ export default function SearchScreen() {
                     contentContainerStyle={{paddingHorizontal:15}}
                     className="space-y-3"
                 >
-                    <Text className="text-white font-semibold ml-1">Results ({results.length})</Text>
+                    <Text className="text-white font-semibold ml-1">Results ({results.filter(item => item.genre_ids.includes(27)).length})</Text>
                     <View className="flex-row justify-between flex-wrap">
                         {
-                            results.map((item, index)=>{
+                            results
+                            .filter(item => item.genre_ids.includes(27))
+                            .map((item, index)=>{
                                 return (
                                     <TouchableWithoutFeedback
                                         key={index}

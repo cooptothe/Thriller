@@ -13,6 +13,12 @@ const ios = Platform.OS == 'ios';
 const verticalMargin = ios? '':' my-3';
 var {width, height} = Dimensions.get('window');
 
+const horrorTheme = {
+    background: '#000000', // Black background
+    text: '#FF0000', // Blood red text color
+    accent: '#8B0000' // Dark red accent color
+  };
+
 export default function PersonScreen() {
     const {params: item} = useRoute();
     const [isFavourite, toggleFavourite] = useState(false);
@@ -45,7 +51,7 @@ export default function PersonScreen() {
     }
 
   return (
-    <ScrollView 
+    <ScrollView style={{ ...styles.background, backgroundColor: horrorTheme.background}}
         className="flex-1 bg-neutral-900" 
         contentContainerStyle={{paddingBottom: 20}}>
         {/* back button */}
@@ -65,7 +71,7 @@ export default function PersonScreen() {
             loading? (
                 <Loading />
             ):(
-                <View>
+                <View style={{ ...styles.background, backgroundColor: horrorTheme.background}} >
                     <View 
                         className="flex-row justify-center"
                         style={{

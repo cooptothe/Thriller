@@ -78,7 +78,6 @@ export default function MovieScreen() {
   return (
     <ScrollView
         className="flex-1 bg-neutral-900">
-
       {/* back button and movie poster */}
       <View className="w-full" >
         <SafeAreaView className={"absolute z-20 w-full flex-row justify-between items-center px-4 "+topMargin}>

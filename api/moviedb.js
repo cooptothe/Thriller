@@ -6,7 +6,7 @@ import { apiKey } from "../constants";
 const apiBaseUrl = 'https://api.themoviedb.org/3';
 const trendingMoviesEndpoint = `${apiBaseUrl}/movie/popular?api_key=${apiKey}&with_genres=27`;
 const upcomingMoviesEndpoint = `${apiBaseUrl}/movie/upcoming?api_key=${apiKey}&with_genres=27`;
-const topRatedMoviesEndpoint = `${apiBaseUrl}/movie/top_rated?api_key=${apiKey}&with_genres=27`;
+const topRatedMoviesEndpoint = `${apiBaseUrl}/movie/top_rated?api_key=${apiKey}&primary_release_date.gte=2013-01-01&with_genres=27`;
 const searchMoviesEndpoint = `${apiBaseUrl}/search/movie?api_key=${apiKey}&with_genres=27`;
 
 

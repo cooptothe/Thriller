@@ -40,6 +40,31 @@ Like `npm start` / `yarn start`, but also attempts to open your app in the iOS S
 
 Like `npm start` / `yarn start`, but also attempts to open your app on a connected Android device or emulator. Requires an installation of Android build tools (see [React Native docs](https://facebook.github.io/react-native/docs/getting-started.html) for detailed setup).
 
+## Technologies Used
+- React Native: A framework for building mobile applications using JavaScript and React.
+- Expo: A set of tools and services for building, deploying, and quickly iterating on native iOS, Android, and web apps.
+- Async Storage: A library for React Native that provides an asynchronous, unencrypted, persistent, key-value storage system.
+- React Navigation: A library for implementing navigation in a mobile application with React Native.
+- Axios: A popular JavaScript HTTP client for making requests to servers.
+- Expo Linear Gradient: A component for adding linear gradients to your React Native app.
+- Expo Status Bar: A component to control the appearance of the status bar.
+- Lottie iOS and Lottie React Native: Libraries for rendering animations and vector graphics.
+- Nativewind: A utility to generate styles from Tailwind CSS classes in React Native.
+- Tailwind CSS: A utility-first CSS framework that provides low-level utility classes to build custom designs.
+- React Native Animatable: A library for creating animations in React Native.
+- React Native Feather Icons: A library for using Feather icons in React Native.
+- React Native Progress: A library for creating progress indicators in React Native.
+- React Native Ratings: A customizable star rating component for React Native.
+- React Native Safe Area Context: A context to manage safe area insets in React Native.
+- React Native Screens: A library for managing and caching screens in React Native apps.
+- React Native Snap Carousel: A carousel component for React Native.
+- React Native Star Rating: A star rating component for React Native.
+- React Native SVG: A library for rendering SVG images in React Native.
+- Expo Font: A library for loading fonts in Expo projects.
+- Expo Updates: A library for managing updates in Expo projects.
+- Babel: A JavaScript compiler that helps in writing code using the latest version of JavaScript.
+- Babel Plugin Module Resolver: A Babel plugin that allows you to specify custom path mappings.
+
 <br />
 
 👻If you have any feedback contact me on [LinkedIn](https://www.linkedin.com/in/edwardcooperii/)!🎃

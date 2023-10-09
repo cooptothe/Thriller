@@ -1,17 +1,26 @@
 # Thriller
 ![Thriller Promo](https://github.com/cooptothe/Thriller/assets/113931110/42e7d9af-d4ac-46a4-b889-2d249ee459ca)
 
-Fully functional Halloween themed Horror Movie app built with react native + moviedb API
+Thriller is a fully functional Horror Movie Database Mobile Application built with React Native + Moviedb API that allows users to discover trending, upcoming, top-rated, and classic horror movies. Users can also search for movies and explore details about specific movies and their cast.
 
-## Get Started
+## Features
+- Trending Movies: Discover the latest trending movies.
+- Upcoming Movies: Explore upcoming movie releases.
+- Top Rated Movies: View the top-rated movies.
+- Classic Movies: Discover classic movies.
+- Search Functionality: Search for movies by title.
+- Movie Details: Explore in-depth information about a specific movie including its cast and similar movies.
+- Person Details: View detailed information about a specific person involved in the movie industry.
 
-install dev dependencies
+## Getting Started
+
+Install dev dependencies
 
 ### `npm install`
 
 ## Then
 
-go to https://www.themoviedb.org, create an account and get the api key, then use that api key in constants/index.js file
+Head over to https://www.themoviedb.org, create an account and get the api key, then use that api key in constants/index.js file.
 
 ## Then
 

@@ -65,7 +65,6 @@ Like `npm start` / `yarn start`, but also attempts to open your app on a connect
 - Expo Font: A library for loading fonts in Expo projects.
 - Expo Updates: A library for managing updates in Expo projects.
 - Babel: A JavaScript compiler that helps in writing code using the latest version of JavaScript.
-- Babel Plugin Module Resolver: A Babel plugin that allows you to specify custom path mappings.
 
 <br />
 

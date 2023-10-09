@@ -20,10 +20,8 @@ export default function SearchScreen() {
     const navigation = useNavigation();
     const [loading, setLoading] = useState(false);
     const [results, setResults] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('');  // New state to store the search term
 
     const handleSearch = search =>{
-        setSearchTerm(search);  // Update the search term state
         if(search && search.length>2){
             setLoading(true);
             searchMovies({
@@ -45,7 +43,8 @@ export default function SearchScreen() {
     const handleTextDebounce = useCallback(debounce(handleSearch, 400), []);    
 
   return (
-    <SafeAreaView style={{ backgroundColor: horrorTheme.background, flex: 1 }}>
+    <SafeAreaView className="bg-neutral-800 flex-1" style={{ backgroundColor: horrorTheme.background }}>
+
         {/* search input */}
         <View 
             className="mx-4 mb-3 flex-row justify-between items-center border border-neutral-700 rounded-full" >
@@ -53,18 +52,16 @@ export default function SearchScreen() {
                 onChangeText={handleTextDebounce} 
                 placeholder="Search Movie" 
                 placeholderTextColor={'gray'} 
-                style={{ padding: 10, flex: 1, fontSize: 16, color: 'white', marginLeft: 10 }}
-                value={searchTerm} 
+                className="pb-1 pl-6 flex-1 text-base font-semibold text-white tracking-wider" 
             />
             <TouchableOpacity 
                 onPress={()=> navigation.navigate('Home')}
-                className="rounded-full p-3 m-1 bg-neutral-700" 
+                className="rounded-full p-3 m-1 bg-neutral-800" 
             >
                 <XMarkIcon size="10" color="white" />
 
             </TouchableOpacity>
         </View>
-
         {/* search results */}
         {
             loading? (
@@ -106,12 +103,12 @@ export default function SearchScreen() {
                     </View>
                 </ScrollView>
             ):(
-                <View className="absolute bottom-0 flex-row justify-center ">
+                <View className="bottom-0 flex-row justify-center">
                 <Image
                   style={{
-                    width: 444,
-                    height: 844,
-                    top: 37,
+                    width: 400,
+                    height: 900,
+                    top: 0,
                     borderRadius: 33,
                     borderWidth: 2,
                     borderColor: 'rgba(0, 0, 0, 1)',
@@ -120,14 +117,14 @@ export default function SearchScreen() {
                 />
                  <LinearGradient
                         colors={['transparent', 'rgba(0, 0, 0, 0.5)', 'rgba(0, 0, 0, 5)']}
-                        style={{width: width*1.2, height: height*0.20, top: 30,}}
+                        style={{width: width*1.1, height: height*0.20, top: 0,}}
                         start={{ x: 0.5, y: 1 }}
                         end={{ x: 0.5, y: 0 }}
                         className="absolute bottom-80"
                 />
                 <LinearGradient
                         colors={['transparent', 'rgba(0, 0, 0, 0.5)', 'rgba(0, 0, 0, 5)']}
-                        style={{width: width*1.2, height: height*0.20}}
+                        style={{width: width*1.1, height: height*0.20}}
                         start={{ x: 0.5, y: 0 }}
                         end={{ x: 0.5, y: 1 }}
                         className="absolute bottom-0"

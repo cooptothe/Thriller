@@ -3,6 +3,9 @@
 
 Thriller is a fully functional Horror Movie Database Mobile Application built with React Native + Moviedb API that allows users to discover trending, upcoming, top-rated, and classic horror movies. Users can also search for movies and explore details about specific movies and their cast.
 
+### Live Demo
+https://expo.dev/@cooptothe/Thriller?serviceType=classic&distribution=expo-go
+
 ## Features
 - Trending Movies: Discover the latest trending movies.
 - Upcoming Movies: Explore upcoming movie releases.
@@ -59,7 +62,6 @@ Like `npm start` / `yarn start`, but also attempts to open your app on a connect
 - React Native Screens: A library for managing and caching screens in React Native apps.
 - React Native Snap Carousel: A carousel component for React Native.
 - React Native Star Rating: A star rating component for React Native.
-- React Native SVG: A library for rendering SVG images in React Native.
 - Expo Font: A library for loading fonts in Expo projects.
 - Expo Updates: A library for managing updates in Expo projects.
 - Babel: A JavaScript compiler that helps in writing code using the latest version of JavaScript.

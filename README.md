@@ -1,5 +1,5 @@
 # Thriller
-![Thriller Promo](https://github.com/cooptothe/Thriller/assets/113931110/ad99d210-b6b7-4a5c-9724-9808e9624c08)
+![Thriller Promo](https://github.com/cooptothe/Thriller/assets/113931110/a78b4f5a-4127-4cc1-b684-4e37829f896b)
 
 Fully functional Halloween themed Horror Movie app built with react native + moviedb API
 

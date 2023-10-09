@@ -1,9 +1,7 @@
 # Thriller
 ![Thriller Promo](https://github.com/cooptothe/Thriller/assets/113931110/42e7d9af-d4ac-46a4-b889-2d249ee459ca)
-
-Thriller is a fully functional Horror Movie Database Mobile Application built with React Native + Moviedb API that allows users to discover trending, upcoming, top-rated, and classic horror movies. Users can also search for movies and explore details about specific movies and their cast.
-
 ### [Live Demo](https://expo.dev/@cooptothe/Thriller)
+Thriller is a fully functional Horror Movie Database Mobile Application built with React Native + Moviedb API that allows users to discover trending, upcoming, top-rated, and classic horror movies. Users can also search for movies and explore details about specific movies and their cast.
 
 ## Features
 - Trending Movies: Discover the latest trending movies.

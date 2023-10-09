@@ -19,9 +19,11 @@ const horrorTheme = {
 export default function SearchScreen() {
     const navigation = useNavigation();
     const [loading, setLoading] = useState(false);
-    const [results, setResults] = useState([])
+    const [results, setResults] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');  // New state to store the search term
 
-    const handleSearch = search=>{
+    const handleSearch = search =>{
+        setSearchTerm(search);  // Update the search term state
         if(search && search.length>2){
             setLoading(true);
             searchMovies({
@@ -43,8 +45,7 @@ export default function SearchScreen() {
     const handleTextDebounce = useCallback(debounce(handleSearch, 400), []);    
 
   return (
-    <SafeAreaView className="bg-neutral-800 flex-1" style={{ backgroundColor: horrorTheme.background }}>
-
+    <SafeAreaView style={{ backgroundColor: horrorTheme.background, flex: 1 }}>
         {/* search input */}
         <View 
             className="mx-4 mb-3 flex-row justify-between items-center border border-neutral-700 rounded-full" >
@@ -52,7 +53,8 @@ export default function SearchScreen() {
                 onChangeText={handleTextDebounce} 
                 placeholder="Search Movie" 
                 placeholderTextColor={'gray'} 
-                className="pb-1 pl-6 flex-1 text-base font-semibold text-white tracking-wider" 
+                style={{ padding: 10, flex: 1, fontSize: 16, color: 'white', marginLeft: 10 }}
+                value={searchTerm} 
             />
             <TouchableOpacity 
                 onPress={()=> navigation.navigate('Home')}
